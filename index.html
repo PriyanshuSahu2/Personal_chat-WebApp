@@ -6,14 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat Window</title>
-    <link rel="stylesheet" href="stylse.css">
+    <link rel="stylesheet" href="new.css">
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
 
 </head>
 
 <body>
-    <h1>Priyanshu Personal Chat</h1>
     <div class="chat">
         <div class="chat-window" id="chat-window">
             <ul id="messages">
@@ -23,11 +22,14 @@
                     </span>
                 </li>
             </ul>
-            <form id="messageForm" autocomplete="off">
-                <input type="text" id="msg-input" placeholder="Enter a message">
-                <button id="msg-btn" type="submit">Send</button>
-            </form>
+
         </div>
+
+        <form id="messageForm" autocomplete="off">
+            <div id="bg-img"></div>
+            <input type="text" id="msg-input" placeholder="Enter a message">
+            <button id="msg-btn" type="submit">Send</button>
+        </form>
     </div>
     <script src="app.js"></script>
 </body>

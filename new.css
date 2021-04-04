@@ -1,0 +1,102 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    overflow: hidden;
+}
+
+.chat {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin: auto;
+}
+
+.chat-window {
+    background-image: url(/images/chatBK.jpg);
+    height: 100%;
+    overflow-y: scroll;
+    background-color: white;
+    border-radius: 20px;
+    padding-bottom: 20px;
+    -webkit-box-shadow: 22px 24px 18px -10px rgba(0, 0, 0, 0.35);
+    -moz-box-shadow: 22px 24px 18px -10px rgba(0, 0, 0, 0.35);
+    box-shadow: 22px 24px 18px -10px rgba(0, 0, 0, 0.35);
+}
+
+#bg-img {
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#messageForm {
+    position: absolute;
+    bottom: -2rem;
+    padding: 10px;
+    width: 95%;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+#msg-input {
+    border-radius: 50px;
+    width: 85%;
+    margin-left: 2%;
+    padding: 10px;
+}
+
+#msg-btn {
+    width: 10%;
+    padding: 9px;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: rgb(5, 190, 144);
+    font-size: large;
+    color: white;
+    font-weight: bold;
+    border: none;
+    margin-left: 1%;
+}
+
+#msg-btn:hover {
+    background-color: teal;
+}
+
+.msg {
+    list-style-type: none;
+}
+
+.msg-span {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: large;
+    background-color: #fad7bf;
+    color: black;
+    margin: 15px 5px 0px 0px;
+    text-align: left;
+}
+
+.name {
+    font-weight: bold;
+}
+
+.my {
+    text-align: right;
+}
+
+.my span {
+    color: white;
+    background-color: rgb(221, 170, 122);
+    margin-right: 20px;
+}
+
+.my i {
+    display: none;
+}
