@@ -15,7 +15,7 @@ body {
 }
 
 .chat-window {
-    background-image: url(/images/chatBK.jpg);
+    background-image: url(images/chatBK.jpg);
     height: 100%;
     overflow-y: scroll;
     background-color: white;
