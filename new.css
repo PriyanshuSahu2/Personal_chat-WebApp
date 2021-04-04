@@ -53,7 +53,7 @@ body {
 }
 
 #msg-btn {
-    width: 10%;
+    width: 7%;
     padding: 9px;
     border-radius: 20px;
     cursor: pointer;
@@ -80,7 +80,7 @@ body {
     font-size: large;
     background-color: #fad7bf;
     color: black;
-    margin: 15px 5px 0px 0px;
+    margin: 10px 5px 0px 0px;
     text-align: left;
 }
 
