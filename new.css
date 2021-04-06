@@ -4,7 +4,6 @@ html {
 
 body {
     height: 100%;
-    overflow: hidden;
 }
 
 .chat {
@@ -100,4 +99,11 @@ body {
 
 .my i {
     display: none;
+}
+
+ul {
+    text-align: left;
+    margin-block-start: 0em;
+    list-style-type: square;
+    margin-block-end: 0%;
 }

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="signUp.css">
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
+
+
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="signup">
+        <div class="container">
+
+            <div class="signin">
+                <div class="signincontent">
+                    <h1>sign Up</h1>
+                    <p>Please enter your details to Sign up and use our website</p>
+                    <br>
+                    <p>Already have an account ?</p>
+                    <button id="signinBtn">SIGN IN</button>
+                </div>
+            </div>
+            <div class="signup-container">
+                <div class="signupcontent">
+
+                    <label for="firstname" id="firstnameLabel">First Name</label>
+                    <label for="lastname" id="lastnameLabel">Last Name</label><br>
+                    <input type="text" name="firstname" id="FirstName">
+                    <input type="text" name="lastname" id="LastName">
+                    <div id="email-content">
+                        <label for="email">Email</label>
+                        <input type="email" id="Emailinput" placeholder="Email">
+                    </div>
+                    <div id="password-content">
+                        <label for="password">Password</label>
+                        <input type="password" id="password-input" placeholder="Password">
+                    </div>
+                    <div id="confirm-password-content">
+                        <label for="confirmpassword">Password</label>
+                        <input type="password" id="confirm-password-input" placeholder="Password">
+                    </div>
+                    <button type="submit" id="login-btn">Login</button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <script src="SignUp.js"></script>
+
+</body>
+
+</html>
