@@ -17,17 +17,43 @@ const msgBtn = document.getElementById("msg-btn");
 
 const db = firebase.database();
 const msgRef = db.ref("/msgs");
-
 let namee = "";
 
+var namess;
+firebase.auth().onAuthStateChanged(function(user) {
 
+    if (user) {
+
+
+        document.getElementById("Hello").innerHTML = user.displayName;
+        alert(user.displayName)
+        var email = user.email;
+        alert("Active User " + email);
+        console.log(document.getElementById("Hello").innerHTML)
+            //is signed in
+
+    } else {
+
+        window.location = "/login.html";
+    }
+
+
+
+});
+
+
+
+document.addEventListener('DOMContentLoaded', init);
 
 function init() {
-    namee = prompt("please Enter Your Name");
+
     msgRef.on('child_added', updateMsgs);
 
 }
-document.addEventListener('DOMContentLoaded', init);
+
+
+
+
 msgForm.addEventListener('submit', sendMessage);
 
 function sendMessage(e) {
@@ -36,7 +62,7 @@ function sendMessage(e) {
 
     if (!text.trim()) return alert('Please type a message'); //no msg submitted
     const msg = {
-        name: namee,
+        name: document.getElementById("Hello").innerHTML,
         text: text
     };
 
@@ -45,15 +71,13 @@ function sendMessage(e) {
 }
 const updateMsgs = data => {
     const { dataName, text } = data.val(); //get name and text
-
-    //load messages, display on left if not the user's name. Display on right if it is the user.
-    const msg = `<li class="${data.val().name == namee ? "msg my": "msg"}"><span class = "msg-span">
+    console.log(data.val().name + "==" + document.getElementById("Hello").innerHTML)
+        //load messages, display on left if not the user's name. Display on right if it is the user.
+    const msg = `<li class="${data.val().name == "Priyanshu Sahu" ? "msg my": "msg"}"><span class = "msg-span">
       <i class = "name">${data.val().name}: </i>${text}
       </span>
     </li>`
-
     msgScreen.innerHTML += msg; //add the <li> message to the chat window
-
     //auto scroll to bottom
     document.getElementById("chat-window").scrollTop = document.getElementById("chat-window").scrollHeight;
 }

@@ -139,4 +139,13 @@ label {
     height: 10%;
     color: #696969;
     width: 79%;
+    box-shadow: 50px black;
+}
+
+#login-btn:active,
+#signinBtn:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(8px);
+    transform: translateX(10px);
 }

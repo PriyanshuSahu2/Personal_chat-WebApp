@@ -30,14 +30,17 @@ function create(email, password, confirmpassword, firstname, lastname) {
         firebase.auth().createUserWithEmailAndPassword(email, password)
             .then((userCredential) => {
                 // Signed in 
-                var user = userCredential.user;
+                var user = firebase.auth().currentUser;
+
                 const details = {
                     name: firstname + " " + lastname,
                     email: email,
 
-
                 };
                 firebase.database().ref("users").child(user.uid).set(details)
+                return user.updateProfile({
+                    displayName: firstname + " " + lastname
+                })
 
             })
             .catch((error) => {
@@ -45,6 +48,7 @@ function create(email, password, confirmpassword, firstname, lastname) {
                 var errorMessage = error.message;
                 alert(errorMessage)
             });
+
     } else {
         alert("password is not same");
     }
