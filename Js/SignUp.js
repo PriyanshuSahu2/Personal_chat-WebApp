@@ -16,7 +16,9 @@ firebase.initializeApp(firebaseConfig);
 // let password = document.getElementById("password-input").value;
 // let confirmpassword = document.getElementById("confirm-password-input").value;
 document.getElementById("login-btn").addEventListener("click", create);
-
+document.getElementById("signinBtn").addEventListener("click", function() {
+    window.location = "login.html";
+});
 
 function create(email, password, confirmpassword, firstname, lastname) {
     firstname = document.getElementById("FirstName").value;
@@ -53,4 +55,23 @@ function create(email, password, confirmpassword, firstname, lastname) {
         alert("password is not same");
     }
 
+}
+var id = null;
+
+function myMove() {
+    var elem = document.querySelector(".signin");
+    console.log(elem)
+    var pos = 0;
+    clearInterval(id);
+    id = setInterval(frame, 10);
+
+    function frame() {
+        if (pos == 350) {
+            clearInterval(id);
+        } else {
+            pos++;
+            elem.style.left = pos + 'px';
+
+        }
+    }
 }
