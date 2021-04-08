@@ -81,3 +81,11 @@ const updateMsgs = data => {
     //auto scroll to bottom
     document.getElementById("chat-window").scrollTop = document.getElementById("chat-window").scrollHeight;
 }
+document.getElementById("logout").addEventListener("click", e => {
+    e.preventDefault();
+    var user = firebase.auth()
+    if (user) {
+        user.signOut();
+    }
+
+})
