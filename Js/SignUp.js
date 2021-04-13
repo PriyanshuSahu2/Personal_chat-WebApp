@@ -37,6 +37,7 @@ function create(email, password, confirmpassword, firstname, lastname) {
                 const details = {
                     name: firstname + " " + lastname,
                     email: email,
+                    userid: user.uid
 
                 };
                 firebase.database().ref("users").child(user.uid).set(details)
