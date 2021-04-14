@@ -13,17 +13,39 @@ body {
     margin: auto;
 }
 
+.container {
+    height: 80%;
+    width: 100%
+}
+
+#other-user-name {}
+
+.user-chat-container {
+    height: 100%;
+    width: 80%;
+    overflow-y: hidden;
+}
+
 .chat-window {
     background-image: url(images/chatBK.jpg);
-    height: 90%;
+    height: 100%;
+    width: 100%;
     overflow-y: scroll;
     background-color: white;
     background-repeat: no-repeat;
     border-radius: 20px;
     padding-bottom: 20px;
+    float: right;
     -webkit-box-shadow: 22px 24px 18px -10px rgba(0, 0, 0, 0.35);
     -moz-box-shadow: 22px 24px 18px -10px rgba(0, 0, 0, 0.35);
     box-shadow: 22px 24px 18px -10px rgba(0, 0, 0, 0.35);
+}
+
+.users-container {
+    height: 100%;
+    width: 20%;
+    float: left;
+    background-color: black;
 }
 
 #bg-img {
@@ -36,12 +58,15 @@ body {
 }
 
 #messageForm {
-    position: absolute;
-    bottom: 1rem;
-    padding: 20px;
+    position: relative;
     width: 95%;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+    margin-left: 20%;
+}
+
+.chat {
+    height: 100%;
 }
 
 #msg-input {
@@ -70,6 +95,11 @@ body {
 
 .msg {
     list-style-type: none;
+}
+
+#messages {
+    margin-bottom: 10%;
+    margin-left: -2%;
 }
 
 .msg-span {
