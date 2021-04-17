@@ -27,14 +27,13 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
 
         document.getElementById("Hello").innerHTML = user.displayName;
-        console.log(currentUserKey)
+
         var email = user.email;
         alert("Active User " + email + ": " + user.displayName);
         db.ref("/users").on('value', function(users) {
             users.forEach(data => {
                 if (data.val().email == user.email) {
                     currentUserKey = data.key
-                    console.log(currentUserKey)
                 }
             });
         });
@@ -50,14 +49,14 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
 
 
-
+window.addEventListener("DOMContentLoaded", updatelist);
 
 document.getElementById("refresh").addEventListener("click", updatelist)
 
 
 function StartChat(friendKey, friendName) {
 
-    console.log(friendKey + ":" + friendName)
+
     var friendList = {
         friendID: friendKey,
         userId: currentUserKey
@@ -66,25 +65,24 @@ function StartChat(friendKey, friendName) {
     db.ref('friend_list').on('value', function(friends) {
         friends.forEach(data => {
             var user = data.val()
-            console.log(user.friendID + " " + friendList.friendID + " " + user.userId)
+
             if ((user.friendID === friendList.friendID && user.userId === friendList.userId) || ((user.friendID === friendList.userId && user.userId === friendList.friendID))) {
-                console.log(flag)
-                chatKey = data.key;
-                console.log(chatKey)
                 flag = true
-                db.ref("/chatMessages").child(chatKey).on('child_added', updateMsgs);
-
-
+                chatKey = data.key;
             }
         })
         if (flag == false) {
-            db.ref('friend_list').push(friendList, function(error) {
+            chatKey = db.ref('friend_list').push(friendList, function(error) {
                 if (error) alert(error);
+                else {
 
-            })
+                }
+            }).getKey();
         }
     })
-
+    if (chatKey != "") {
+        updateMsgs(chatKey)
+    }
 
 }
 
@@ -94,8 +92,9 @@ function updatelist() {
     db.ref("/users").on('value', function(users) {
         users.forEach(data => {
             if (data.val().email != user.currentUser.email) {
-                userf.innerHTML += `<li><Button id = user-"${data.val().name}" onclick = "StartChat('${data.key}','${data.val().name}')">"${data.val().name}"</Button></li>`
-                console.log(user.innerHTML)
+                // userf.innerHTML += `<li><Button id = user-"${data.val().name}" class = "userlist" onclick = "StartChat('${data.key}','${data.val().name}')">"${data.val().name}"</Button></li>`
+                userf.innerHTML += `<li> <div class="userlist"><img src="'${user.PhotoUrl}'"> <button type="submit" onclick = "StartChat('${data.key}','${data.val().name}')">"${data.val().name}"</button></div> </li> `
+                StartChat("some");
             }
 
         });
@@ -112,6 +111,7 @@ function sendMessage(e) {
 
     if (!text.trim()) return alert('Please type a message'); //no msg submitted
     const msg = {
+        userID: currentUserKey,
         name: document.getElementById("Hello").innerHTML,
         text: text
     };
@@ -119,18 +119,26 @@ function sendMessage(e) {
     db.ref("chatMessages").child(chatKey).push(msg);
     msgInput.value = "";
 }
-const updateMsgs = data => {
-    const { dataName, text } = data.val(); //get name and texts
-    console.log(data.val().name + "==" + document.getElementById("Hello").innerHTML)
-        //load messages, display on left if not the user's name. Display on right if it is the user.
-    const msg = `<li class="${data.val().name == document.getElementById("Hello").innerHTML  ? "msg my": "msg"}"><span class = "msg-span">
-      <i class = "name">${data.val().name}: </i>${text}
-      </span>
-    </li>`
-    msgScreen.innerHTML += msg; //add the <li> message to the chat window
-    //auto scroll to bottom
-    document.getElementById("chat-window").scrollTop = document.getElementById("chat-window").scrollHeight;
+
+function updateMsgs(chatKey) {
+
+    db.ref("/chatMessages").child(chatKey).on('value', function(msgs) {
+        var messageDisplay = '';
+        msgs.forEach(data => {
+            var chat = data.val();
+            if (chat.userID != currentUserKey) {
+                messageDisplay += `<li class="${ "msg"}"><span class = "msg-span">${chat.text}`
+            } else {
+                messageDisplay += `<li class="${ "my"}"><span class = "msg-span">${chat.text}`
+            }
+
+        })
+        document.getElementById('messages').innerHTML = messageDisplay;
+        document.getElementById("chat-window").scrollTop = document.getElementById("chat-window").scrollHeight;
+    });
+
 }
+
 document.getElementById("logout").addEventListener("click", e => {
     e.preventDefault();
     var user = firebase.auth()

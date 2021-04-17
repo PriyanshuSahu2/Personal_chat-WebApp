@@ -18,7 +18,45 @@ body {
     width: 100%
 }
 
-#other-user-name {}
+.user {
+    width: 100%;
+    height: 100%;
+}
+
+.userlist {
+    width: 100%;
+    height: 50px;
+    text-align: left;
+    margin-left: -30px;
+    margin-top: 10px;
+    border-bottom: 1px solid grey;
+}
+
+.userlist img {
+    width: 50px;
+    border-radius: 60px;
+    height: 50px;
+    background-repeat: no-repeat;
+    margin-top: -8px;
+    overflow: hidden;
+    float: left;
+}
+
+.userlist button {
+    text-align: left;
+    outline: none;
+    margin-left: 4%;
+    background-color: transparent;
+    margin-top: -099px;
+    border: 0;
+    padding: 0;
+    width: 80%;
+    height: 100%;
+}
+
+.userlist :active {
+    background-color: grey;
+}
 
 .user-chat-container {
     height: 100%;
@@ -45,7 +83,7 @@ body {
     height: 100%;
     width: 20%;
     float: left;
-    background-color: black;
+    background-color: transparent;
 }
 
 #bg-img {
