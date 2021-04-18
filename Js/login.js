@@ -12,7 +12,6 @@ firebase.initializeApp(firebaseConfig);
 
 document.getElementById("submitBtn").addEventListener('click', loginwith);
 
-
 function loginwith() {
 
     var email = document.getElementById("loginField").value;
