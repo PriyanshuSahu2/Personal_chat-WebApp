@@ -93,15 +93,18 @@ function updatelist() {
         users.forEach(data => {
             if (data.val().email != user.currentUser.email) {
                 // userf.innerHTML += `<li><Button id = user-"${data.val().name}" class = "userlist" onclick = "StartChat('${data.key}','${data.val().name}')">"${data.val().name}"</Button></li>`
-                userf.innerHTML += `<li> <div class="userlist"><img src="'${user.PhotoUrl}'"> <button type="submit" onclick = "StartChat('${data.key}','${data.val().name}')">"${data.val().name}"</button></div> </li> `
+                if (user.PhotoUrl == null) {
+                    userf.innerHTML += `<li> <div class="userlist"><img src="./images/user.png"> <button type="submit" onclick = "StartChat('${data.key}','${data.val().name}')">"${data.val().name}"</button></div> </li> `
+                } else {
+
+                    userf.innerHTML += `<li> <div class="userlist"><img src="'${user.PhotoUrl}'"> <button type="submit" onclick = "StartChat('${data.key}','${data.val().name}')">"${data.val().name}"</button></div> </li> `
+                }
                 StartChat("some");
             }
 
         });
     })
 }
-
-
 
 msgForm.addEventListener('submit', sendMessage);
 
@@ -120,7 +123,9 @@ function sendMessage(e) {
     msgInput.value = "";
 }
 
-function updateMsgs(chatKey) {
+function updateMsgs(
+
+) {
 
     db.ref("/chatMessages").child(chatKey).on('value', function(msgs) {
         var messageDisplay = '';
@@ -130,6 +135,7 @@ function updateMsgs(chatKey) {
                 messageDisplay += `<li class="${ "msg"}"><span class = "msg-span">${chat.text}`
             } else {
                 messageDisplay += `<li class="${ "my"}"><span class = "msg-span">${chat.text}`
+
             }
 
         })
