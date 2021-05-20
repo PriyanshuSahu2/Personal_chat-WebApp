@@ -14,7 +14,7 @@ const msgScreen = document.getElementById("messages");
 const msgForm = document.getElementById("messageForm");
 const msgInput = document.getElementById("msg-input");
 const msgBtn = document.getElementById("msg-btn");
-const userf = document.getElementById("users")
+const userf = document.getElementById("chatlists");
 
 const db = firebase.database();
 const msgRef = db.ref("/msgs");
@@ -29,7 +29,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         document.getElementById("Hello").innerHTML = user.displayName;
 
         var email = user.email;
-        alert("Active User " + email + ": " + user.displayName);
+
         db.ref("/users").on('value', function(users) {
             users.forEach(data => {
                 if (data.val().email == user.email) {
@@ -51,7 +51,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 window.addEventListener("DOMContentLoaded", updatelist);
 
-document.getElementById("refresh").addEventListener("click", updatelist)
+// document.getElementById("refresh").addEventListener("click", updatelist)
 
 
 function StartChat(friendKey, friendName) {
@@ -88,13 +88,49 @@ function StartChat(friendKey, friendName) {
 
 function updatelist() {
     var user = firebase.auth()
-
+    var i = 0;
     db.ref("/users").on('value', function(users) {
         users.forEach(data => {
             if (data.val().email != user.currentUser.email) {
                 // userf.innerHTML += `<li><Button id = user-"${data.val().name}" class = "userlist" onclick = "StartChat('${data.key}','${data.val().name}')">"${data.val().name}"</Button></li>`
                 if (user.PhotoUrl == null) {
-                    userf.innerHTML += `<li> <div class="userlist"><img src="./images/user.png"> <button type="submit" onclick = "StartChat('${data.key}','${data.val().name}')">"${data.val().name}"</button></div> </li> `
+
+                    userf.innerHTML += `<div class="userslist" style="z-index: 75; transition: none 0s ease 0s; height: 72px; transform: translateY(${i*72}px);">
+                    <div tabindex="-1" aria-selected="false" role="row">
+                        <div class="_2Z4DV _1V5O7">
+                            <div class="friendpic">
+                                <div class="_y4n1" style="height: 49px; width: 49px;">
+                                    <img src="./images/chatBK.jpg" alt="" class="_Ypng">
+                                </div>
+                            </div>
+                            <div class="msginfo">
+                                <div role="gridcell" aria-colindex="2" class="friendname">
+                                    <div class="_3nzy">
+                                        <span class="_4nzy">
+                                            <span class="namefinal">
+                                                ${data.val().name}
+                                            </span>
+
+                                        </span>
+                                    </div>
+                                    <div id="lastmsgtime">18:45</div>
+
+
+
+
+                                </div>
+                                <div class="lastmsgcontainer">
+                                    <div class="_2lmsc">
+                                        <span class="lastmsgspan">
+                                        <span dir ="ltr" id= "lastmsg">Hello Konichiwa mina</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> `
+                    i++;
                 } else {
 
                     userf.innerHTML += `<li> <div class="userlist"><img src="'${user.PhotoUrl}'"> <button type="submit" onclick = "StartChat('${data.key}','${data.val().name}')">"${data.val().name}"</button></div> </li> `
@@ -106,7 +142,7 @@ function updatelist() {
     })
 }
 
-msgForm.addEventListener('submit', sendMessage);
+// msgForm.addEventListener('submit', sendMessage);
 
 function sendMessage(e) {
     e.preventDefault();
@@ -145,11 +181,11 @@ function updateMsgs(
 
 }
 
-document.getElementById("logout").addEventListener("click", e => {
-    e.preventDefault();
-    var user = firebase.auth()
-    if (user) {
-        user.signOut();
-    }
+// document.getElementById("logout").addEventListener("click", e => {
+//     e.preventDefault();
+//     var user = firebase.auth()
+//     if (user) {
+//         user.signOut();
+//     }
 
-})
+// })

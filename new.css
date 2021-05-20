@@ -1,4 +1,313 @@
-html {
+                        #app,
+                        html,
+                        body {
+                            position: relative;
+                            width: 100%;
+                            height: 100%;
+                            overflow: hidden;
+                        }
+                        
+                        .wrapper {
+                            position: relative;
+                            z-index: 100;
+                            width: 100%;
+                            height: 100%;
+                            overflow: hidden;
+                            background-color: black;
+                        }
+                        
+                        .content {
+                            position: relative;
+                            display: flex;
+                            overflow: hidden;
+                            background-color: black;
+                            width: 72%;
+                            height: 98%;
+                            margin-left: auto;
+                            margin-right: auto;
+                            border-radius: 0 red;
+                        }
+                        
+                        .content_wrapper {
+                            position: absolute;
+                            top: 0;
+                            z-index: 200;
+                            display: flex;
+                            width: 100%;
+                            height: 100%;
+                            background-color: black;
+                            overflow: hidden;
+                            pointer-events: none;
+                        }
+                        
+                        .leftpanel {
+                            background-color: white;
+                            flex: 30%;
+                        }
+                        
+                        .rightpanel {
+                            flex: 70%;
+                            background-color: blue;
+                            overflow: hidden;
+                        }
+                        
+                        .users {
+                            display: flex;
+                            flex-direction: column;
+                            height: 100%;
+                        }
+                        
+                        .userinfo {
+                            display: flex;
+                            flex: none;
+                            flex-basis: auto;
+                            z-index: 1000;
+                            position: relative;
+                            align-items: center;
+                            justify-content: flex-end;
+                            width: 100%;
+                            height: 59px;
+                            background-color: brown;
+                            box-sizing: border-box;
+                        }
+                        
+                        .userpic {
+                            flex-grow: 1;
+                            background-color: burlywood;
+                        }
+                        
+                        .menu_options {
+                            flex: none;
+                            background-color: cadetblue;
+                        }
+                        
+                        .searchcontent {
+                            position: relative;
+                            z-index: 100;
+                            box-sizing: border-box;
+                            flex: none;
+                            height: 49px;
+                            transition-property: box-shadow, background-color;
+                            transition-duration: 0.18s, 0.25s;
+                            transition-timing-function: ease-out, ease-out;
+                            transition-delay: 0s, 0s;
+                            border-bottom: 1px solid black;
+                        }
+                        
+                        .searchdiv {
+                            flex: none;
+                        }
+                        
+                        ._1Ek-U ._2w7RB {
+                            transition: all .24s cubic-bezier(.4, 0, .2, 1);
+                            transform: rotate(0);
+                        }
+                        
+                        ._1rPZq {
+                            top: 0;
+                            left: 0;
+                            position: absolute;
+                            z-index: 100;
+                        }
+                        
+                        svg {
+                            display: block;
+                            pointer-events: none;
+                        }
+                        
+                        ._2MwRD {
+                            position: absolute;
+                            right: 24px;
+                            left: 77px;
+                            top: 2px;
+                            z-index: 100;
+                            height: 20px;
+                            font-size: 14px;
+                            line-height: 20px;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            pointer-events: none;
+                            color: black;
+                        }
+                        
+                        ._25tHC {
+                            display: flex;
+                            flex: 0 0 auto;
+                            flex-direction: column;
+                        }
+                        
+                        .searchbtn {
+                            position: absolute;
+                            left: 24px;
+                            top: 12px;
+                            z-index: 100;
+                            width: 24px;
+                            height: 24px;
+                            outline: none;
+                            background: none;
+                            cursor: pointer;
+                            padding: 0;
+                            border: 0;
+                            pointer-events: all;
+                        }
+                        
+                        .serachlabel {
+                            position: absolute;
+                            top: 7.5px;
+                            box-sizing: border-box;
+                            display: flex;
+                            align-items: center;
+                            height: 35px;
+                            right: 12px;
+                            left: 12px;
+                            background-color: gray;
+                            border-radius: 18px;
+                            pointer-events: all;
+                            z-index: 5;
+                        }
+                        
+                        .searchbar {
+                            position: relative;
+                            width: 100%;
+                        }
+                        
+                        .friendschat {
+                            z-index: 1;
+                            flex-grow: 1;
+                            overflow-y: auto;
+                            display: flex;
+                            flex-direction: column;
+                            position: relative;
+                            background-color: cadetblue;
+                        }
+                        
+                        .chatlists {
+                            margin-top: -1px;
+                            overflow: hidden;
+                        }
+                        
+                        .userslist {
+                            position: absolute;
+                            width: 100%;
+                            background-color: black;
+                        }
+                        
+                        ._2Z4DV {
+                            position: relative;
+                            display: flex;
+                            flex-direction: row;
+                            height: 72px;
+                            pointer-events: all;
+                            cursor: pointer;
+                            background-color: white;
+                        }
+                        
+                        .friendpic {
+                            display: flex;
+                            flex: none;
+                            align-items: center;
+                            margin-top: -1px;
+                            padding: 0 15px 0 13px;
+                            background-color: white;
+                        }
+                        
+                        ._Ypng {
+                            position: relative;
+                            width: 100%;
+                            height: 100%;
+                            overflow: hidden;
+                            background-size: cover;
+                        }
+                        
+                        ._y4n1 {}
+                        
+                        ._Ypng {
+                            background-size: cover;
+                            border-radius: 50%;
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                            position: relative;
+                        }
+                        
+                        .msginfo {
+                            padding-right: 15px;
+                            border-top: 1px solid rgb(48, 48, 48);
+                            display: flex;
+                            flex-basis: auto;
+                            flex-direction: column;
+                            flex-grow: 1;
+                            justify-content: center;
+                            min-width: 0;
+                        }
+                        
+                        .friendname {
+                            display: flex;
+                            text-align: left;
+                            align-items: center;
+                            line-height: normal;
+                        }
+                        
+                        ._3nzy {
+                            text-align: left;
+                            line-height: normal;
+                            display: flex;
+                            flex-grow: 1;
+                            overflow: hidden;
+                            font-size: 17px;
+                            font-weight: 400;
+                            color: black;
+                            background-color: white;
+                        }
+                        
+                        #lastmsgtime {
+                            margin-top: 3px;
+                            margin-left: 6px;
+                            overflow: hidden;
+                            line-height: 14px;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            flex: none;
+                            max-width: 100%;
+                            font-size: 12px;
+                            color: blanchedalmond;
+                        }
+                        
+                        .lastmsgcontainer {
+                            display: flex;
+                            align-items: center;
+                            min-height: 20px;
+                            font-size: 13px;
+                            line-height: 20px;
+                            color: black;
+                            margin-top: 2px;
+                        }
+                        
+                        ._2lmsc {
+                            text-align: left;
+                            background-color: initial;
+                            flex-grow: 1;
+                            overflow: hidden;
+                            font-size: 14px;
+                            font-weight: 400;
+                            line-height: 20px;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                        }
+                        
+                        .lastmsgspan {
+                            display: flex;
+                            align-items: flex-start;
+                        }
+                        
+                        #lastmsg {
+                            display: inline-block;
+                            flex-grow: 1;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                        }
+                        /* html {
     height: 100%;
 }
 
@@ -136,7 +445,7 @@ body {
 }
 
 #messages {
-    margin-bottom: 10%;
+    margin-bottom: 1%;
     margin-left: -2%;
 }
 
@@ -174,4 +483,4 @@ ul {
     margin-block-start: 0em;
     list-style-type: square;
     margin-block-end: 0%;
-}
+} */

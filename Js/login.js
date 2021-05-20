@@ -20,7 +20,7 @@ function loginwith() {
         .then((userCredential) => {
             // Signed in 
             var user = userCredential.user;
-            alert("signIn");
+            alert("login successful")
         })
         .catch((error) => {
             var errorCode = error.code;
@@ -33,7 +33,7 @@ function loginwith() {
 
             window.location = "index.html";
         } else {
-            alert("absent")
+
         }
     });
 }

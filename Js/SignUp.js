@@ -53,7 +53,7 @@ function create(email, password, confirmpassword, firstname, lastname) {
             });
 
     } else {
-        alert("password is not same");
+        alert("password does not match");
     }
 
 }

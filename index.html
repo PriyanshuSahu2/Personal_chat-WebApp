@@ -2,49 +2,99 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chat Window</title>
-    <link rel="stylesheet" href="new.css">
+    <link rel="stylesheet" href="new.css" />
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
-
 </head>
 
 <body>
-    <h3 id="Hello"></h3>
-    <button type="submit" id="logout">LogOut</button>
-    <button type="submit" id="refresh">Clcik</button>
-    <div class="container">
-        <div class="users-container">
-            <ul id="users">
-                <li>
-                    <!-- <div class="userlist"><img src="/images/loginBAck.png"> <button type="submit">Hello</button></div> -->
-                </li>
+    <div id="app">
 
-            </ul>
-        </div>
-        <div class="user-chat-container">
-            <div class="chat-window" id="chat-window">
-                <ul id="messages">
-                    <li class="msg">
-                        <span class="msg-span">
-                        <i class="name">ADMIN:</i>Yōkoso Min'na san
-                    </span>
-                    </li>
-                </ul>
+        <div class="wrapper">
+            <div class="content">
+                <div class="content_wrapper">
+                    <div class="leftpanel">
+                        <div class="users">
+                            <header class="userinfo">
+                                <div class="userpic"></div>
+                                <div class="menu_options"></div>
+                            </header>
+                            <span class="_25tHC"></span>
+                            <div tabindex="-1" class="searchdiv">
+                                <div class="searchcontent">
+                                    <button class="searchbtn">
+                                        <div class="_1rPZq _2w7RB"><span data-testid="search" data-icon="search"
+                                                class=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                    width="24" height="24">
+                                                    <path fill="currentColor"
+                                                        d="M15.009 13.805h-.636l-.22-.219a5.184 5.184 0 0 0 1.256-3.386 5.207 5.207 0 1 0-5.207 5.208 5.183 5.183 0 0 0 3.385-1.255l.221.22v.635l4.004 3.999 1.194-1.195-3.997-4.007zm-4.808 0a3.605 3.605 0 1 1 0-7.21 3.605 3.605 0 0 1 0 7.21z">
+                                                    </path>
+                                                </svg></span></div>
+                                                <div class="_2MwRD">Search or start new chat</div>
+                                                
+                                            </button>
+                                    <label class="serachlabel">
+                                                    <div class="searchbar" contenteditable="true" data-tab="3" dir=""></div>
+                                            </label>
+                                </div>
+                            </div>
+                            <div class="friendschat">
+                                <div tabindex="-1" data-tab="4">
+                                    <div class>
+                                        <div aria-label="chat list" id="chatlists" class="chatlists" role="grid">
+                                            <!-- <div class="userslist" style="z-index: 75; transition: none 0s ease 0s; height: 72px; transform: translateY(0px);">
+                                                <div tabindex="-1" aria-selected="false" role="row">
+                                                    <div class="_2Z4DV _1V5O7">
+                                                        <div class="friendpic">
+                                                            <div class="_y4n1" style="height: 49px; width: 49px;">
+                                                                <img src="./images/chatBK.jpg" alt="" class="_Ypng">
+                                                            </div>
+                                                        </div>
+                                                        <div class="msginfo">
+                                                            <div role="gridcell" aria-colindex="2" class="friendname">
+                                                                <div class="_3nzy">
+                                                                    <span class="_4nzy">
+                                                                        <span class="namefinal">
+                                                                            PRiyanshu
+                                                                        </span>
+
+                                                                    </span>
+                                                                </div>
+                                                                <div id="lastmsgtime">18:45</div>
+
+
+
+
+                                                            </div>
+                                                            <div class="lastmsgcontainer">
+                                                                <div class="_2lmsc">
+                                                                    <span class="lastmsgspan">
+                                                                    <span dir ="ltr" id= "lastmsg">Hello Konichiwa mina</span>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rightpanel"></div>
+                </div>
             </div>
         </div>
-        <form id="messageForm" autocomplete="off">
-            <div id="bg-img"></div>
-            <input type="text" id="msg-input" placeholder="Enter a message">
-            <button id="msg-btn" type="submit">Send</button>
-        </form>
     </div>
 
-    </div>
+
     <script src="Js/app.js"></script>
 </body>
 
